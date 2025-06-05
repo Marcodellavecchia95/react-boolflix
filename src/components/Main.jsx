@@ -29,6 +29,10 @@ export default function Main() {
           return (
             <li key={movie.id}>
               <h3>{movie.title}</h3>
+              <img
+                src={`https://image.tmdb.org/t/p/w342/${movie.backdrop_path}`}
+                alt=""
+              />
               <p>Titolo Originale: {movie.original_title}</p>
               <p>
                 Lingua:
