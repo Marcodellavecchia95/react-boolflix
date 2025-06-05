@@ -14,7 +14,6 @@ function MovieProvider({ children }) {
         `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`
       )
       .then((res) => {
-        console.log(res.data.results);
         setFilteredMovies(res.data.results);
       });
   };
