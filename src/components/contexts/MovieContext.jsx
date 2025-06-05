@@ -21,7 +21,7 @@ function MovieProvider({ children }) {
 
   return (
     <MovieContext.Provider
-      value={(query, setQuery, filteredMovies, fetchFilteredMovies)}
+      value={{ query, setQuery, filteredMovies, fetchFilteredMovies }}
     >
       {children}
     </MovieContext.Provider>
@@ -29,7 +29,7 @@ function MovieProvider({ children }) {
 }
 
 function useMovie() {
-  useContext(MovieContext);
+  return useContext(MovieContext);
 }
 
 export { MovieProvider, useMovie };

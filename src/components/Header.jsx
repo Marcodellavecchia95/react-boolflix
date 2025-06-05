@@ -1,7 +1,8 @@
-import axios from "axios";
-import { useState } from "react";
+import { useMovie } from "./contexts/MovieContext";
 
 export default function Header() {
+  const { query, setQuery, fetchFilteredMovies } = useMovie();
+
   const handleInput = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
