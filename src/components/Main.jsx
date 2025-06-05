@@ -2,7 +2,6 @@ import { useMovie } from "./contexts/MovieContext";
 
 export default function Main() {
   const { filteredMovies } = useMovie();
-  // en => us, gb
 
   const getCorrectFlagName = (lang) => {
     const flagDictionary = {
@@ -22,6 +21,7 @@ export default function Main() {
 
     return `https://flagsapi.com/${flagName.toUpperCase()}/flat/64.png`;
   };
+
   return (
     <section>
       <ul>
