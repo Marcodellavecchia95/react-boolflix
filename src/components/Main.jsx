@@ -1,7 +1,29 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
+import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
 import { useMovie } from "./contexts/MovieContext";
 
 export default function Main() {
   const { filteredMovies } = useMovie();
+
+  const starFunction = (vote) => {
+    const starsNumber = Math.ceil(vote / 2);
+    const totalStars = 5;
+
+    const stars = [];
+
+    for (let i = 0; i < totalStars; i++) {
+      stars.push(
+        <FontAwesomeIcon
+          key={i}
+          icon={i < starsNumber ? faStarSolid : faStarRegular}
+          color="gold"
+        />
+      );
+    }
+
+    return stars;
+  };
 
   const getCorrectFlagName = (lang) => {
     const flagDictionary = {
@@ -41,7 +63,7 @@ export default function Main() {
                   alt={movie.original_language}
                 />
               </p>
-              <p>Voto: {movie.vote_average}</p>
+              <p>Voto: {starFunction(movie.vote_average)}</p>
             </li>
           );
         })}
