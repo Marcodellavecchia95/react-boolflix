@@ -10,3 +10,49 @@ header {
 main {
   background-color: grey;
 }
+
+.card {
+  position: relative;
+  width: 342px;
+  min-height: 340px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-front img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.card-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover .card-front {
+  opacity: 0;
+}
+
+.card:hover .card-back {
+  opacity: 1;
+  overflow: auto;
+}

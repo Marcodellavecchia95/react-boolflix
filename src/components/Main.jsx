@@ -45,51 +45,35 @@ export default function Main() {
     return `https://flagsapi.com/${flagName.toUpperCase()}/flat/64.png`;
   };
 
-  const [isShown, setIsShown] = useState(false);
-
   return (
-    <main>
+    <main className="pt-2">
       <div className="container">
         <div className="row">
           {filteredMovies.map((movie) => {
             return (
-              <div className="col">
-                <div
-                  className="card"
-                  onMouseEnter={() => setIsShown(true)}
-                  onMouseLeave={() => setIsShown(false)}
-                >
-                  {" "}
-                  <img
-                    src={`https://image.tmdb.org/t/p/w342/${movie.backdrop_path}`}
-                    alt=""
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card’s content.
-                    </p>
-                    <a href="#" className="btn btn-primary">
-                      Go somewhere
-                    </a>
-                  </div>
-                  {/* <li key={movie.id}>
-                    <h3>{movie.title}</h3>
+              <div className="col-4" key={movie.id}>
+                <div className="card mb-2">
+                  <div className="card-front">
                     <img
                       src={`https://image.tmdb.org/t/p/w342/${movie.backdrop_path}`}
-                      alt=""
+                      alt={movie.title}
                     />
-                    <p>Titolo Originale: {movie.original_title}</p>
-                    <p>
-                      Lingua:
-                      <img
-                        src={movieLanguage(movie.original_language)}
-                        alt={movie.original_language}
-                      />
-                    </p>
-                    <p>Voto: {starFunction(movie.vote_average)}</p>
-                  </li> */}
+                  </div>
+                  <div className="card-back">
+                    <h3>{movie.title}</h3>
+                    <ul>
+                      <li>Titolo Originale: {movie.original_title}</li>
+                      <li>
+                        Lingua:
+                        <img
+                          src={movieLanguage(movie.original_language)}
+                          alt={movie.original_language}
+                        />
+                      </li>
+                      <li>Voto: {starFunction(movie.vote_average)}</li>
+                      <li>Overview: {movie.overview}</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             );
