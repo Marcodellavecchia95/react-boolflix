@@ -1,0 +1,12 @@
+header {
+  min-height: 80px;
+  background-color: black;
+}
+
+.logo {
+  max-width: 50px;
+}
+
+main {
+  background-color: grey;
+}

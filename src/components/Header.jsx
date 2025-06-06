@@ -10,9 +10,16 @@ export default function Header() {
 
   return (
     <header>
-      <div className="container">
-        <section>
-          <input onChange={handleInput} value={query} type="text" />
+      <div className="container d-flex justify-content-between align-items-center">
+        <img className="logo mt-3" src="src/img/logo.png" alt="" />
+
+        <section className="mt-3">
+          <input
+            onChange={handleInput}
+            value={query}
+            type="text"
+            placeholder="Cerca film o serie Tv..."
+          />
           <button onClick={fetchFilteredMovies}>Cerca</button>
         </section>
       </div>
